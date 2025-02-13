@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="nav-container">
+        <nav class="category-nav">
+            <h1> SHOPPING CART </h1>
+        </nav>
+    
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Product List -->
+        <div class="product-container" id="product-list"></div>
+
+        <!-- Cart Section -->
+        <div class="cart-box">
+            <h2>Shopping Cart</h2>
+            <div id="cart-items"></div>
+            <p id="total-cost">Total: ₹0</p>
+            <button id="buy-now" class="buy-now-btn" onclick="openAddressPopup()">Buy Now
+        </div>
+    </div>
+    <div id="address-popup" class="popup">
+        <div class="popup-content">
+            <h2>Enter Your Details</h2>
+            <input type="text" id="name" placeholder="Full Name" required>
+            <input type="text" id="address" placeholder="Address" required>
+            <input type="text" id="city" placeholder="City" required>
+            <input type="text" id="pincode" placeholder="Pincode" required>
+            <button onclick="confirmOrder()">Next</button>
+            <button onclick="closePopup('address-popup')">Cancel</button>
+        </div>
+    </div>
+    
+    <!-- Confirmation Popup -->
+    <div id="confirm-popup" class="popup">
+        <div class="popup-content">
+            <h2>Confirm Your Order</h2>
+            <p>Are you sure you want to place this order?</p>
+            <button onclick="placeOrder()">Yes</button>
+            <button onclick="closePopup('confirm-popup')">No</button>
+        </div>
+    </div>
+    
+    <!-- Receipt Popup -->
+    <div id="receipt-popup" class="popup">
+        <div class="popup-content">
+            <h2>Order Receipt</h2>
+            <p id="receipt-details"></p>
+            <button onclick="printReceipt()">Print Receipt</button>
+            <button onclick="closePopup('receipt-popup')">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
